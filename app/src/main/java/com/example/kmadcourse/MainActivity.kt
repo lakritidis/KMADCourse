@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         val view = binding.root
         setContentView(view)
 
-        Toast.makeText(this, "App started!", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "App started successfully!", Toast.LENGTH_LONG).show()
 
         val btnSubmit = binding.btnSubmit
         btnSubmit.setOnClickListener {
