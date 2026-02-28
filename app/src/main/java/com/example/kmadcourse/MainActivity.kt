@@ -19,6 +19,7 @@ class MainActivity : ComponentActivity() {
 
         Toast.makeText(this, "App started successfully!", Toast.LENGTH_LONG).show()
 
+
         val btnSubmit = binding.btnSubmit
         btnSubmit.setOnClickListener {
             Toast.makeText(this,"Button Pressed",Toast.LENGTH_LONG).show()
