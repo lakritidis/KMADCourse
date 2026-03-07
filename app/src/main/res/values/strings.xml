@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">KMADCourse</string>
-    <string name="tv_caption">Please enter your surname</string>
-    <string name="cap_hello">Hello MAD students</string>
+    <string name="textview_hello">Hello</string>
+    <string name="enter_surname">Enter your surname</string>
+    <string name="enter_firstname">Enter your firstname</string>
+    <string name="ch_remember">Remember me the next time</string>
 </resources>
