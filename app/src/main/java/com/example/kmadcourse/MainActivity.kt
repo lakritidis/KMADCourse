@@ -17,8 +17,6 @@ class MainActivity : ComponentActivity() {
         val view = binding.root
         setContentView(view)
 
-        val btn = binding.myfirstButton
-        val btn2 = binding.mysecondButton
-        btn?.setText("I was changed!")
+
     }
 }
