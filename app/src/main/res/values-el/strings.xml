@@ -5,4 +5,10 @@
     <string name="enter_surname">Grapse to eponymo</string>
     <string name="enter_firstname">Grapse to onoma</string>
     <string name="ch_remember">Na me thymasai</string>
+    <string name="fetchurl">Λήψη URL</string>
+    <string name="fetchurl3">Λήψη URL</string>
+    <string name="fetchurl4">Λήψη URL</string>
+    <string name="fetchurl7">Λήψη URL</string>
+    <string name="waiturl">Anamon;h</string>
+    <string name="text_message1">Δυναμικό κείμενο</string>
 </resources>

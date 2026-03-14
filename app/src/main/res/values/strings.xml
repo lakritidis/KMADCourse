@@ -4,4 +4,10 @@
     <string name="enter_surname">Enter your surname</string>
     <string name="enter_firstname">Enter your firstname</string>
     <string name="ch_remember">Remember me the next time</string>
+    <string name="fetchurl">Download URL</string>
+    <string name="fetchurl3">Download URL</string>
+    <string name="fetchurl4">Download URL</string>
+    <string name="fetchurl7">Download URL</string>
+    <string name="waiturl">Download URL</string>
+    <string name="text_message1">Programmatically written text</string>
 </resources>

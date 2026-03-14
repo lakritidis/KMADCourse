@@ -27,6 +27,8 @@ class ConnectActivity : ComponentActivity() {
         url_box = findViewById(R.id.ed_url)
         response_box = findViewById(R.id.ed_urlcontent)
 
+
+
         var btn_fetch: Button = findViewById(R.id.btn_fetch)
         btn_fetch.setOnClickListener {
             DownloadTask(this).execute(url_box.text.toString())
