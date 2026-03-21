@@ -1,12 +1,12 @@
 package com.example.kmadcourse
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -64,7 +64,6 @@ class MainActivity : ComponentActivity() {
             true
         }
 
-
         val spinner_ref = findViewById<Spinner>(R.id.title_selector)
 
         // Spinner options
@@ -79,6 +78,12 @@ class MainActivity : ComponentActivity() {
 
         // Set the default selected item
         spinner_ref.setSelection(4)
+
+        val imagebutton_ref = findViewById<ImageButton>(R.id.btn_gotoanother)
+        imagebutton_ref.setOnClickListener {
+            val myIntent = Intent(this, AnotherActivity::class.java)
+            startActivity(myIntent)
+        }
     }
 
     fun compute_distance() {
