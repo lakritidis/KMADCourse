@@ -81,7 +81,13 @@ class MainActivity : ComponentActivity() {
 
         val imagebutton_ref = findViewById<ImageButton>(R.id.btn_gotoanother)
         imagebutton_ref.setOnClickListener {
+            val edittext_ref = findViewById<EditText>(R.id.edit_surname)
             val myIntent = Intent(this, AnotherActivity::class.java)
+
+            val b = Bundle().apply {
+                putString("whattodisplay", edittext_ref.getText().toString())
+            }
+            myIntent.putExtras(b)
             startActivity(myIntent)
         }
     }

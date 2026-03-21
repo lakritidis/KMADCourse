@@ -3,6 +3,7 @@ package com.example.kmadcourse
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class AnotherActivity : AppCompatActivity() {
@@ -12,8 +13,17 @@ class AnotherActivity : AppCompatActivity() {
 
         val back_btn = findViewById<Button>(R.id.btn_back)
         back_btn.setOnClickListener {
-            val myIntent = Intent(this, MainActivity::class.java)
-            startActivity(myIntent)
+            finish()
         }
+
+        val b = intent.extras
+        val drawMonument = b?.getString("whattodisplay")
+
+        val imgView= findViewById<ImageView>(R.id.img_view)
+        when(drawMonument) {
+            "whitetower" -> imgView.setImageResource(R.drawable.whitetower)
+            "WHITETOWER" -> imgView.setImageResource(R.drawable.whitetower)
+            "citadel" -> imgView.setImageResource(R.drawable.acropolis)
+            "cat03" -> imgView.setImageResource(R.drawable.prod_cat03)}
     }
 }
