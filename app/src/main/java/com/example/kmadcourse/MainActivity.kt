@@ -3,9 +3,11 @@ package com.example.kmadcourse
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.kmadcourse.databinding.ActivityMainBinding
@@ -27,26 +29,56 @@ class MainActivity : ComponentActivity() {
         firstname_edit.setTextSize(24.0F)
         firstname_edit.setTextColor("#0000ff".toColorInt())
         firstname_edit.setBackgroundColor("#efefef".toColorInt())
-
+/*
         val another_ref_to_surname_box =
             findViewById<EditText>(R.id.edit_surname)
         another_ref_to_surname_box.setText("Changed again!")
         another_ref_to_surname_box.setTextSize(20.0F)
         another_ref_to_surname_box.setTextColor("#bb2539".toColorInt())
         another_ref_to_surname_box.setBackgroundColor(Color.GRAY)
-
+*/
         val checkbox_ref = act_binding.chRem
         checkbox_ref?.setChecked(false)
 
         val btn_ok = findViewById<Button>(R.id.btn_ok)
         btn_ok.setOnClickListener {
-            val user_surname = lastname_edit.getText().toString()
-            // val display_message =  "I was pressed!" + user_surname
-            val is_cb_sel = checkbox_ref?.isChecked
-            if (is_cb_sel == true) {
-                Toast.makeText(this, "ANOTHER MESSAGE", Toast.LENGTH_SHORT).show()
-            }
+            val edittext_ref = findViewById<EditText>(R.id.edit_surname)
+            val user_surname = edittext_ref.getText().toString()
+
+            val firstname_ref = findViewById<EditText>(R.id.edit_firstname)
+            val user_firstname = firstname_ref.getText().toString()
+
+            val checkbox_ref = findViewById<CheckBox>(R.id.ch_rem)
+            val user_selection = checkbox_ref.isChecked().toString()
+
+            Toast.makeText(this,
+                "USER DATA: " + user_surname + ", " + user_firstname + ", " + user_selection,
+                Toast.LENGTH_LONG).show()
         }
+
+        btn_ok.setOnLongClickListener {
+            Toast.makeText(this,
+                "I WAS LONG PRESSED",
+                Toast.LENGTH_LONG).show()
+
+            true
+        }
+
+
+        val spinner_ref = findViewById<Spinner>(R.id.title_selector)
+
+        // Spinner options
+        val spinnerOptions = arrayOf(" ", "Mr", "Mrs", "Miss", "Dr", "Professor", "General")
+
+        // Create adapter
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerOptions).
+            apply{
+                setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            }
+        spinner_ref.adapter = adapter
+
+        // Set the default selected item
+        spinner_ref.setSelection(4)
     }
 
     fun compute_distance() {
