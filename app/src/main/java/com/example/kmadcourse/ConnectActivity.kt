@@ -5,6 +5,9 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.android.volley.Request
 
 import com.example.kmadcourse.databinding.ActivityConnectBinding
 import kotlinx.coroutines.Dispatchers
@@ -27,13 +30,11 @@ class ConnectActivity : ComponentActivity() {
         url_box = findViewById(R.id.ed_url)
         response_box = findViewById(R.id.ed_urlcontent)
 
-
-
         var btn_fetch: Button = findViewById(R.id.btn_fetch)
         btn_fetch.setOnClickListener {
             DownloadTask(this).execute(url_box.text.toString())
         }
-/*
+
         var btn_fetchvolley: Button = findViewById(R.id.btn_fetchvolley)
         btn_fetchvolley.setOnClickListener {
             val queue = Volley.newRequestQueue(this)
@@ -50,9 +51,8 @@ class ConnectActivity : ComponentActivity() {
             )
 
             queue.add(stringRequest)
-
         }
-*/
+
         var btn_fetch_coroutine: Button = findViewById(R.id.btn_fetchcoroutine)
         btn_fetch_coroutine.setOnClickListener {
             lifecycleScope.launch {
