@@ -53,7 +53,7 @@ class ConnectActivity : ComponentActivity() {
             queue.add(stringRequest)
         }
 
-        var btn_fetch_coroutine: Button = findViewById(R.id.btn_fetchcoroutine)
+        var btn_fetch_coroutine = findViewById<Button>(R.id.btn_fetchcoroutine)
         btn_fetch_coroutine.setOnClickListener {
             lifecycleScope.launch {
                 val content = downloadUrl(url_box.text.toString())
@@ -73,9 +73,7 @@ class ConnectActivity : ComponentActivity() {
 
     private suspend fun downloadUrl(urlString: String): String {
         return withContext(Dispatchers.IO) {
-
             val result = StringBuilder()
-
             try {
                 val url = URL(urlString)
                 val connection = url.openConnection() as HttpURLConnection
@@ -90,15 +88,11 @@ class ConnectActivity : ComponentActivity() {
                 while (reader.readLine().also { line = it } != null) {
                     result.append(line).append("\n")
                 }
-
                 reader.close()
-
             } catch (e: Exception) {
                 return@withContext e.message ?: "Error"
             }
-
             result.toString()
         }
     }
-
 }

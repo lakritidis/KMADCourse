@@ -12,7 +12,7 @@ import com.example.kmadcourse.R
 import java.util.LinkedList
 import java.util.Locale
 
-class ProductListAdapter(context: Context, private val mProductList: LinkedList<Product>
+class ProductListAdapter(context: Context, private val mProductList_dataset: LinkedList<Product>
 ) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
@@ -25,11 +25,11 @@ class ProductListAdapter(context: Context, private val mProductList: LinkedList<
         val tvProductQty: TextView = v.findViewById(R.id.tv_product_qty)
         val btnInc: ImageButton = v.findViewById(R.id.btn_inc)
         val btnDec: ImageButton = v.findViewById(R.id.btn_dec)
-        val btnDel: ImageButton = v.findViewById(R.id.btn_del)
+        //val btnDel: ImageButton = v.findViewById(R.id.btn_del)
 
         init {
             btnInc.setOnClickListener {
-                val updQty = tvProductQty.text.toString().toInt() + 1
+                val updQty = tvProductQty.text.toString().toInt() + 2
                 tvProductQty.text = updQty.toString()
             }
 
@@ -48,18 +48,20 @@ class ProductListAdapter(context: Context, private val mProductList: LinkedList<
     }
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
-        val mCurrent = mProductList[position]
-
+        val mCurrent = mProductList_dataset[position]
+        println(mCurrent.stringify())
         holder.tvProductId.text = mCurrent.id.toString()
         holder.tvProductQty.text = "0"
         holder.tvProductTitle.text = mCurrent.title
         holder.tvProductPrice.text =
             String.format(Locale.getDefault(), "%.2f $", mCurrent.price)
 
-        holder.itemLayout.setOnClickListener {
+        holder.itemLayout.setOnLongClickListener {
             println(mCurrent.stringify())
+            true
         }
+
     }
 
-    override fun getItemCount(): Int = mProductList.size
+    override fun getItemCount(): Int = mProductList_dataset.size
 }

@@ -12,6 +12,12 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.kmadcourse.databinding.ActivityMainBinding
 import androidx.core.graphics.toColorInt
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 class MainActivity : ComponentActivity() {
     private lateinit var act_binding: ActivityMainBinding
@@ -92,8 +98,29 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    fun compute_distance() {
+    private suspend fun downloadUrl(urlString: String): String {
+        return withContext(Dispatchers.IO) {
+            val result = StringBuilder()
+            try {
+                val url = URL(urlString)
+                val connection = url.openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                connection.connect()
 
+                val reader = BufferedReader(
+                    InputStreamReader(connection.inputStream)
+                )
+
+                var line: String?
+                while (reader.readLine().also { line = it } != null) {
+                    result.append(line).append("\n")
+                }
+                reader.close()
+            } catch (e: Exception) {
+                return@withContext e.message ?: "Error"
+            }
+            result.toString()
+        }
     }
 }
 
