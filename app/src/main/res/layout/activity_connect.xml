@@ -9,9 +9,11 @@
 
     <EditText
         android:id="@+id/ed_url"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/fetchurl3"
@@ -23,9 +25,11 @@
 
     <Button
         android:id="@+id/btn_fetch"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#689F38"
         android:text="@string/fetchurl"
         app:icon="@android:drawable/stat_sys_download"
@@ -36,9 +40,11 @@
 
     <Button
         android:id="@+id/btn_fetchvolley"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#FFA000"
         android:text="@string/fetchurl4"
         app:icon="@android:drawable/stat_sys_download"
@@ -49,9 +55,11 @@
 
     <Button
         android:id="@+id/btn_fetchcoroutine"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#2196F3"
         android:text="@string/fetchurl7"
         app:icon="@android:drawable/stat_sys_download"
@@ -62,9 +70,11 @@
 
     <EditText
         android:id="@+id/ed_urlcontent"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:background="#EDE9E9"

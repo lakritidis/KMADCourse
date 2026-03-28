@@ -11,4 +11,8 @@
     <string name="waiturl">Download URL</string>
     <string name="text_message1">Programmatically written text</string>
     <string name="GoBack">Go Back</string>
+    <string name="title">Title</string>
+    <string name="dec">Decrease</string>
+    <string name="inc">Increase</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -12,4 +12,8 @@
     <string name="waiturl">Anamon;h</string>
     <string name="text_message1">Δυναμικό κείμενο</string>
     <string name="GoBack">Piso</string>
+    <string name="title">Title</string>
+    <string name="dec">Decrease</string>
+    <string name="inc">Increase</string>
+    <string name="delete">Delete</string>
 </resources>
