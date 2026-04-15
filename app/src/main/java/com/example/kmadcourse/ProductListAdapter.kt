@@ -27,7 +27,7 @@ class ProductListAdapter(context: Context, private val mProductListDataset: Link
 
         init {
             btnInc.setOnClickListener {
-                val updQty = tvProductQty.text.toString().toInt() + 2
+                val updQty = tvProductQty.text.toString().toInt() + 1
                 tvProductQty.text = updQty.toString()
             }
 

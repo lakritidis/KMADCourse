@@ -8,6 +8,7 @@ import java.net.URL
 
 class DownloadTask(private val activity: ConnectActivity) :
     AsyncTask<String, Void, String>() {
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg params: String?): String {
         val urlString = params[0] ?: return ""
         val result = StringBuilder()
@@ -30,6 +31,7 @@ class DownloadTask(private val activity: ConnectActivity) :
         return result.toString()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onPostExecute(result: String?) {
             activity.updateEditText(result.toString())
     }

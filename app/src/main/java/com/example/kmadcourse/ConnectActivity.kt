@@ -9,7 +9,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.android.volley.Request
 
-import com.example.kmadcourse.databinding.ActivityConnectBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -20,55 +19,54 @@ import java.net.URL
 
 
 class ConnectActivity : ComponentActivity() {
-    private lateinit var binding: ActivityConnectBinding
-    private lateinit var url_box: EditText
-    private lateinit var response_box: EditText
+    private lateinit var urlBox: EditText
+    private lateinit var responseBox: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect)
-        url_box = findViewById(R.id.ed_url)
-        response_box = findViewById(R.id.ed_urlcontent)
+        urlBox = findViewById(R.id.ed_url)
+        responseBox = findViewById(R.id.ed_urlcontent)
 
-        var btn_fetch: Button = findViewById(R.id.btn_fetch)
-        btn_fetch.setOnClickListener {
-            DownloadTask(this).execute(url_box.text.toString())
+        val btnFetch: Button = findViewById(R.id.btn_fetch)
+        btnFetch.setOnClickListener {
+            DownloadTask(this).execute(urlBox.text.toString())
         }
 
-        var btn_fetchvolley: Button = findViewById(R.id.btn_fetchvolley)
-        btn_fetchvolley.setOnClickListener {
+        val btnFetchvolley: Button = findViewById(R.id.btn_fetchvolley)
+        btnFetchvolley.setOnClickListener {
             val queue = Volley.newRequestQueue(this)
-            val url = url_box.text.toString()
+            val url = urlBox.text.toString()
 
             val stringRequest = StringRequest(
                 Request.Method.GET, url,
                 { response ->
-                    response_box.setText(response)
+                    responseBox.setText(response)
                 },
                 { error ->
-                    response_box.setText("That didn't work!")
+                    responseBox.setText(error.toString())
                 }
             )
 
             queue.add(stringRequest)
         }
 
-        var btn_fetch_coroutine = findViewById<Button>(R.id.btn_fetchcoroutine)
-        btn_fetch_coroutine.setOnClickListener {
+        val btnFetchCoroutine = findViewById<Button>(R.id.btn_fetchcoroutine)
+        btnFetchCoroutine.setOnClickListener {
             lifecycleScope.launch {
-                val content = downloadUrl(url_box.text.toString())
-                response_box.setText(content)
+                val content = downloadUrl(urlBox.text.toString())
+                responseBox.setText(content)
             }
         }
 
     }
 
     fun updateEditText(text: String) {
-        response_box.setText(text)
+        responseBox.setText(text)
     }
 
     fun displayError(text: String) {
-        response_box.setText(text)
+        responseBox.setText(text)
     }
 
     private suspend fun downloadUrl(urlString: String): String {
