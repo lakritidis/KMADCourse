@@ -1,4 +1,4 @@
-package com.example.madcourse
+package com.example.kmadcourse
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kmadcourse.Product
-import com.example.kmadcourse.R
 import java.util.LinkedList
 import java.util.Locale
 
-class ProductListAdapter(context: Context, private val mProductList_dataset: LinkedList<Product>
+class ProductListAdapter(context: Context, private val mProductListDataset: LinkedList<Product>
 ) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
@@ -48,7 +46,7 @@ class ProductListAdapter(context: Context, private val mProductList_dataset: Lin
     }
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
-        val mCurrent = mProductList_dataset[position]
+        val mCurrent = mProductListDataset[position]
         println(mCurrent.stringify())
         holder.tvProductId.text = mCurrent.id.toString()
         holder.tvProductQty.text = "0"
@@ -60,8 +58,7 @@ class ProductListAdapter(context: Context, private val mProductList_dataset: Lin
             println(mCurrent.stringify())
             true
         }
-
     }
 
-    override fun getItemCount(): Int = mProductList_dataset.size
+    override fun getItemCount(): Int = mProductListDataset.size
 }

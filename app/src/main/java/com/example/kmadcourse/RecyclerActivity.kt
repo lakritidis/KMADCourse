@@ -1,13 +1,9 @@
 package com.example.kmadcourse
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.madcourse.ProductListAdapter
 import java.util.LinkedList
 
 class RecyclerActivity : AppCompatActivity() {
@@ -15,7 +11,7 @@ class RecyclerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
 
-        val productList_dataset = LinkedList<Product>().apply {
+        val mProductListDataset = LinkedList<Product>().apply {
             add(Product(1, "Sony Playstation 3", 16.60, 0))
             add(Product(2, "LG 42.5' Monitor", 140.2, 0))
             add(Product(3, "Intel Core I7 7200 CPU", 167.3,0))
@@ -44,7 +40,7 @@ class RecyclerActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.product_recycler)
 
-        val adapter = ProductListAdapter(this, productList_dataset)
+        val adapter = ProductListAdapter(this, mProductListDataset)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }

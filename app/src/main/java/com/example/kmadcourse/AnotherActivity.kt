@@ -1,6 +1,5 @@
 package com.example.kmadcourse
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -11,8 +10,8 @@ class AnotherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_another)
 
-        val back_btn = findViewById<Button>(R.id.btn_back)
-        back_btn.setOnClickListener {
+        val backBtn = findViewById<Button>(R.id.btn_back)
+        backBtn.setOnClickListener {
             finish()
         }
 
