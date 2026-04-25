@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img_butterfly"
         android:layout_width="113dp"
         android:layout_height="128dp"
         android:src="@drawable/may"
@@ -114,7 +114,7 @@
         android:src="@drawable/dec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/img_butterfly" />
 
     <Spinner
         android:id="@+id/title_selector"

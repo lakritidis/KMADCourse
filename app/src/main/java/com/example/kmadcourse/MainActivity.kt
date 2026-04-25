@@ -3,13 +3,16 @@ package com.example.kmadcourse
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         checkbox_ref?.setChecked(false)
 
         val btn_ok = findViewById<Button>(R.id.btn_ok)
+        registerForContextMenu(btn_ok)
+
         btn_ok.setOnClickListener {
             val edittext_ref = findViewById<EditText>(R.id.edit_surname)
             val user_surname = edittext_ref.getText().toString()
@@ -66,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 "USER DATA: " + user_surname + ", " + user_firstname + ", " + user_selection,
                 Toast.LENGTH_LONG).show()
         }
-
+/*
         btn_ok.setOnLongClickListener {
             Toast.makeText(this,
                 "I WAS LONG PRESSED",
@@ -74,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
-
+*/
         val spinner_ref = findViewById<Spinner>(R.id.title_selector)
 
         // Spinner options
@@ -101,7 +106,11 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtras(b)
             startActivity(myIntent)
         }
+
+        val img_butter = findViewById<ImageView>(R.id.img_butterfly)
+        registerForContextMenu(img_butter)
     }
+
     @SuppressLint("RestrictedApi")
     override fun onCreateOptionsMenu(menu: Menu): Boolean{
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -130,6 +139,44 @@ class MainActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.id_compress -> {
+                Toast.makeText(this, "Compressing...", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_arch -> {
+                Toast.makeText(this, "Archiving...", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_option1 -> {
+                Toast.makeText(this, "Option 1 was selected. Running...", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_option2 -> {
+                Toast.makeText(this, "Option 2 was selected. Running...", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            else -> super.onContextItemSelected(item)
+        }
+    }
+    override fun onCreateContextMenu(
+        menu: ContextMenu, v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        menuInflater.inflate(
+            when (v.id) {
+                R.id.btn_ok -> R.menu.ctx_menu
+                R.id.img_butterfly -> R.menu.ctx_menu_2
+                else -> return
+            },
+            menu
+        )
     }
 
     private suspend fun downloadUrl(urlString: String): String {
