@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/id_new"
+        android:title="New" />
+    <item
+        android:id="@+id/id_load"
+        android:title="Load" />
+    <item
+        android:id="@+id/id_save"
+        android:title="Save" />
+    <item
+        android:id="@+id/id_more"
+        android:title="More">
+
+        <menu>
+            <item android:id="@+id/id_dup" android:title="Duplicate" />
+            <item
+                android:id="@+id/id_trun"
+                android:title="Truncate" />
+            <item
+                android:id="@+id/id_chen"
+                android:title="Change Encoding" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/id_close"
+        android:title="Close" />
+
+</menu>

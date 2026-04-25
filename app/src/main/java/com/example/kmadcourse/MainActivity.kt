@@ -1,7 +1,10 @@
 package com.example.kmadcourse
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
@@ -10,6 +13,8 @@ import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuBuilder
 import com.example.kmadcourse.databinding.ActivityMainBinding
 import androidx.core.graphics.toColorInt
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +24,7 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var act_binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,6 +100,35 @@ class MainActivity : ComponentActivity() {
             }
             myIntent.putExtras(b)
             startActivity(myIntent)
+        }
+    }
+    @SuppressLint("RestrictedApi")
+    override fun onCreateOptionsMenu(menu: Menu): Boolean{
+        menuInflater.inflate(R.menu.main_menu, menu)
+        (menu as? MenuBuilder)?.setOptionalIconsVisible(true)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.id_new -> {
+                Toast.makeText(this, item.title.toString() + " element has been pressed", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_load -> {
+                Toast.makeText(this, item.title.toString() + " element has been pressed", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_save -> {
+                Toast.makeText(this, item.title.toString() + " element has been pressed", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.id_dup -> {
+                Toast.makeText(this, item.title.toString() + " element has been pressed", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
