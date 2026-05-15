@@ -67,11 +67,13 @@ class MainActivity : AppCompatActivity() {
             val checkbox_ref = findViewById<CheckBox>(R.id.ch_rem)
             val user_selection = checkbox_ref.isChecked().toString()
 
-            Toast.makeText(this,
+            Toast.makeText(
+                this,
                 "USER DATA: " + user_surname + ", " + user_firstname + ", " + user_selection,
-                Toast.LENGTH_LONG).show()
+                Toast.LENGTH_LONG
+            ).show()
         }
-/*
+
         btn_ok.setOnLongClickListener {
             Toast.makeText(this,
                 "I WAS LONG PRESSED",
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
-*/
+
         val spinner_ref = findViewById<Spinner>(R.id.title_selector)
 
         // Spinner options
