@@ -102,8 +102,9 @@
         android:id="@+id/img_butterfly"
         android:layout_width="113dp"
         android:layout_height="128dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/may"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_ok" />
 
@@ -113,8 +114,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/dec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_butterfly" />
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/img_butterfly"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ok" />
 
     <Spinner
         android:id="@+id/title_selector"
@@ -127,4 +129,14 @@
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/ch_rem" />
 
+    <Button
+        android:id="@+id/btn_alert"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#689F38"
+        android:text="@string/showdialog"
+        app:icon="@android:drawable/ic_dialog_alert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_butterfly" />
 </androidx.constraintlayout.widget.ConstraintLayout>

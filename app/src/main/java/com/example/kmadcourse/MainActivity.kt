@@ -111,6 +111,13 @@ class MainActivity : AppCompatActivity() {
 
         val img_butter = findViewById<ImageView>(R.id.img_butterfly)
         registerForContextMenu(img_butter)
+
+
+        val btnAlert: Button = findViewById(R.id.btn_alert)
+        btnAlert.setOnClickListener {
+            val my_message = AnotherCustomClass()
+            my_message.show(supportFragmentManager, "delete")
+        }
     }
 
     @SuppressLint("RestrictedApi")
