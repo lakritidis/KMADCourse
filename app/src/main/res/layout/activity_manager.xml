@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManagerActivity">
+
+
+    <Button android:id="@+id/btn_stop_task" android:layout_width="320dp" android:layout_height="50dp" android:backgroundTint="#FFA000" android:text="@string/stop_alarm" app:icon="@android:drawable/ic_notification_clear_all" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/btn_start_task" tools:ignore="TextContrastCheck"/>
+    <Button android:id="@+id/btn_start_task" android:layout_width="320dp" android:layout_height="50dp" android:layout_marginTop="350dp" android:backgroundTint="#689F38" android:text="@string/start_alarm" app:icon="@android:drawable/stat_sys_upload" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.494" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" tools:ignore="TextContrastCheck"/>
+    <EditText android:id="@+id/ed_response" android:layout_width="320dp" android:layout_height="200dp" android:layout_marginTop="140dp" android:autofillHints="" android:background="#EDE9E9" android:ems="10" android:fontFamily="monospace" android:gravity="start|top" android:hint="@string/waiturl" android:inputType="textMultiLine" android:textColorHint="#616161" android:textSize="12sp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView android:id="@+id/tv_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:layout_marginTop="20dp" android:text="@string/coord" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/altit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1" />
+    <TextView android:id="@+id/tv_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:layout_marginTop="5dp" android:text="@string/spd" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_2"/>
+    <TextView android:id="@+id/tv_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:layout_marginTop="5dp" android:text="@string/brng" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_3"/>
+    <TextView android:id="@+id/tv_coord" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="120dp" android:layout_marginTop="20dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView android:id="@+id/tv_altit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="120dp" android:layout_marginTop="5dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_coord"/>
+    <TextView android:id="@+id/tv_speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="120dp" android:layout_marginTop="5dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_altit"/>
+    <TextView android:id="@+id/tv_brng" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="120dp" android:layout_marginTop="5dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_speed"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
